@@ -27,7 +27,7 @@ function printedMessage({ father, child, time }) {
     ${leaveTime}
     --------------------
   * Tiempo: 
-      ${time} Hora(s)
+      ${time.toFixed(2)} Hora(s)
     --------------------
   * TOTAL: 
       $${total.toFixed(2)}
