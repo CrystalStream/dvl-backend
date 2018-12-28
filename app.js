@@ -1,23 +1,27 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-require('dayjs/locale/es')
+const express = require('express')
+const path = require('path')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
 const dayjs = require('dayjs')
+require('dayjs/locale/es')
+
+// db setup
+require('./src/config/db')
+
 dayjs.locale('es')
 
-const indexRouter = require('./routes/index');
-const apiRouter = require('./routes/api');
+const indexRouter = require('./src/routes/index')
+const ticketsRouter = require('./src/routes/tickets')
 
-const app = express();
+const app = express()
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter);
-app.use('/api', apiRouter);
+app.use('/', indexRouter)
+app.use('/api', ticketsRouter)
 
-module.exports = app;
+module.exports = app
