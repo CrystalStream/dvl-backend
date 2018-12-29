@@ -42,7 +42,8 @@ function getPrinterMessages({ tutor, child, totalTime, createAt, leaveDate, tota
   visita.
 
   Quejas y sugerencias
-  TEL (01) 341 XXX XX XX
+  Tel. 01 (375) 104 48 24
+  Fb: divertilandiaTamazula
   \n\n
   `
 
