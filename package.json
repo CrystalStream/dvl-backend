@@ -5,14 +5,17 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "win-install": "node install-win.js"
+    "win-install": "node install-win.js",
+    "drop-db": "node ./src/config/clear-db.js"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "cookie-parser": "~1.4.3",
     "dayjs": "^1.7.8",
     "debug": "~2.6.9",
     "escpos": "^2.4.10",
     "express": "~4.16.0",
+    "inquirer": "^6.2.1",
     "mongoose": "^5.4.1",
     "mongoose-sequence": "^4.0.1",
     "mongoose-timestamp": "^0.6.0",
