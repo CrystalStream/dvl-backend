@@ -12,11 +12,22 @@ function createTicket(req, res) {
 
       try {
         printTicket(messages)
-        res.status(200).json({ success: true })
+        res.status(200).json({ success: true, ticket })
       } catch(err) {
-        res.status(500).json({ error: "Printer not responding" })
+        res.status(500).json({ error: 'Printer not responding' })
       }
   })
+}
+
+function onlyPrintTicket(req, res) {
+  const messages = getPrinterMessages(req.body, true)
+
+  try {
+    printTicket(messages)
+    res.status(200).json({ success: true })
+  } catch(err) {
+    res.status(500).json({ error: 'Printer not responding' })
+  }
 }
 
 function printTicket({ ticketHeader, ticketBody, ticketFooter}) {
@@ -40,5 +51,6 @@ function printTicket({ ticketHeader, ticketBody, ticketFooter}) {
 }
 
 module.exports = {
-  createTicket
+  createTicket,
+  onlyPrintTicket
 }
