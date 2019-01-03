@@ -33,7 +33,9 @@ function onlyPrintTicket(req, res) {
 function printTicket({ ticketHeader, ticketBody, ticketFooter}) {
   // Select the adapter based on your printer type
   const device  = new escpos.USB()
+  console.log("device", device);
   const printer = new escpos.Printer(device)
+  console.log("printer", printer);
 
   device.open(function(){
     printer
