@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose')
-const config = require('./main-config.json')
+const config = require('./main-config')
 
 mongoose.Promise = global.Promise
 

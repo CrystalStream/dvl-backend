@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const autoIncrement = require('mongoose-sequence')(mongoose)
 const timestamps = require('mongoose-timestamp')
 const addHours = require('../utils/addHours')
-const config = require('../config/main-config.json')
+const config = require('../config/main-config')
 
 const TicketSchema = new mongoose.Schema({
   tutor: {

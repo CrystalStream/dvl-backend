@@ -1,7 +1,0 @@
-{
-  "env": "development",
-  "pricePerHour": 20,
-  "db": {
-    "uri": "mongodb://localhost:27017/dvl"
-  }
-}
