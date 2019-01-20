@@ -17,6 +17,8 @@
     "ejs": "^2.6.1",
     "escpos": "^2.4.10",
     "express": "~4.16.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
     "inquirer": "^6.2.1",
     "mongoose": "^5.4.1",
     "mongoose-seed": "^0.5.1",

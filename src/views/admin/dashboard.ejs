@@ -15,23 +15,30 @@
 
   <div class="container">
     <section class="section">
+      <% if (messages.success || messages.error) { %>
+        <div class="notification <%= messages.success ? 'is-success' : 'is-danger' %>">
+          <%= messages.success || messages.error %>
+        </div>
+      <% } %>
       <article class="message">
         <div class="message-header">
           <h1>Configuracion</h1>
         </div>
         <div class="message-body">
-          <div class="field">
-            <label class="label">Precio por hora</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Text input">
+          <form method="post" action="/admin/config" novalidate>
+            <div class="field">
+              <label class="label">Precio por hora</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" name="pricePerHour" value="<%= pricePerHour %>" autocomplete="off">
+              </div>
             </div>
-          </div>
 
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link">Submit</button>
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </article>
     </section>
