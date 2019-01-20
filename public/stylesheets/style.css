@@ -1,8 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*
+* COLORS:
+* #96CEB4
+*
+*
+*
+*/
+
+/*
+* Main styles
+*/
+html {
+  background: #F2F9F8;
+}
+.navbar {
+  background: #C5E6EF;
+  box-shadow: 1px 1px 1px #99BDDC;
 }
 
-a {
-  color: #00B7FF;
+.main {
+  pa
 }

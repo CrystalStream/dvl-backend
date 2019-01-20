@@ -5,8 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
+    "seed": "node ./src/scripts/config-seed",
     "win-install": "node install-win.js",
-    "drop-db": "node ./src/config/clear-db.js"
+    "drop-db": "node ./src/scripts/clear-db.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",

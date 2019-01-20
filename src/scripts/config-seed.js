@@ -1,16 +1,27 @@
 const seeder = require('mongoose-seed')
+const config = require('../config/main-config')
+
+const data = [
+  {
+    'model': 'Configs',
+    'documents': [
+      {
+        'pricePerHour': 30
+      }
+    ]
+  }
+]
 
 // Connect to MongoDB via Mongoose
-seeder.connect('mongodb://localhost/sample-dev', function() {
+seeder.connect(config.db.uri, function() {
  
   // Load Mongoose models
   seeder.loadModels([
-    'app/model1File.js',
-    'app/model2File.js'
+    'src/models/Configs.js'
   ])
  
   // Clear specified collections
-  seeder.clearModels(['Model1', 'Model2'], function() {
+  seeder.clearModels(['Configs'], function() {
  
     // Callback to populate DB once collections have been cleared
     seeder.populateModels(data, function() {
@@ -19,20 +30,3 @@ seeder.connect('mongodb://localhost/sample-dev', function() {
  
   })
 })
- 
-// Data array containing seed data - documents organized by Model
-var data = [
-    {
-        'model': 'Model1',
-        'documents': [
-            {
-                'name': 'Doc1',
-                'value': 200
-            },
-            {
-                'name': 'Doc2',
-                'value': 400
-            }
-        ]
-    }
-]

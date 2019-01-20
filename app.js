@@ -12,6 +12,7 @@ dayjs.locale('es')
 
 const indexRouter = require('./src/routes/index')
 const ticketsRouter = require('./src/routes/tickets')
+const adminRouter = require('./src/routes/admin')
 
 const app = express()
 
@@ -20,8 +21,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/src/views/'));
 
 app.use('/', indexRouter)
+app.use('/admin', adminRouter)
 app.use('/api', ticketsRouter)
 
 module.exports = app
