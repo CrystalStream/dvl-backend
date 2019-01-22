@@ -19,19 +19,17 @@ function updateConfiguration(req, res) {
 
       req.flash(type, message)
       res.redirect('/admin')
-    });
-  });
+    })
+  })
 }
 
 function renderForm(req, res) {
   Configs.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, config) {
     if (err) res.status(404)
     const price = config.pricePerHour || 30
-    console.log("config", config);
-    console.log(req.session)
     
     res.render('admin/dashboard', { pricePerHour: config.pricePerHour })
-  });
+  })
 }
 
 module.exports = {

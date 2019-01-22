@@ -12,7 +12,6 @@ require('./src/config/db')
 
 dayjs.locale('es')
 
-const indexRouter = require('./src/routes/index')
 const ticketsRouter = require('./src/routes/tickets')
 const adminRouter = require('./src/routes/admin')
 
@@ -28,13 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/src/views/'));
 
-app.use('/', indexRouter)
 app.use('/admin', adminRouter)
 app.use('/api', ticketsRouter)
 
 // 404
 app.use((req, res, next) => {
-  res.status(404).send('Sorry can\'t find that!')
+  res.redirect('/admin')
 })
 
 app.use((err, req, res, next) => {
