@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const autoIncrement = require('mongoose-sequence')(mongoose)
 const timestamps = require('mongoose-timestamp')
 const addHours = require('../utils/addHours')
-const config = require('../config/main-config.json')
+const Configs = require('./Configs')
 
 const TicketSchema = new mongoose.Schema({
   tutor: {
@@ -28,8 +28,12 @@ TicketSchema.plugin(autoIncrement, { inc_field: 'folio' })
 // Hooks
 TicketSchema.pre('save', function (next) {
   this.leaveDate = addHours(this.createdAt, this.totalTime)
-  this.totalPrice = this.totalTime * config.pricePerHour
-  next()
+
+  Configs.findOne({}, {}, { sort: { 'created_at' : -1 } }, (err, config) => {
+    if (err) res.status(500).end()
+    this.totalPrice = this.totalTime * config.pricePerHour
+    next()
+  })
 })
 
 module.exports = mongoose.model('Ticket', TicketSchema) 

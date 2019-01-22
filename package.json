@@ -5,18 +5,23 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
+    "seed": "node ./src/scripts/config-seed",
     "win-install": "node install-win.js",
-    "drop-db": "node ./src/config/clear-db.js"
+    "drop-db": "node ./src/scripts/clear-db.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
     "cookie-parser": "~1.4.3",
     "dayjs": "^1.7.8",
     "debug": "~2.6.9",
+    "ejs": "^2.6.1",
     "escpos": "^2.4.10",
     "express": "~4.16.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
     "inquirer": "^6.2.1",
     "mongoose": "^5.4.1",
+    "mongoose-seed": "^0.5.1",
     "mongoose-sequence": "^4.0.1",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "~1.9.0"

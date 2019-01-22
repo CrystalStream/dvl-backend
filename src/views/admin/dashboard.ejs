@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Administracion de Configuraciones DVL</title>
+  <link rel="stylesheet" href="/stylesheets/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <% if (messages.success || messages.error) { %>
+        <div class="notification <%= messages.success ? 'is-success' : 'is-danger' %>">
+          <%= messages.success || messages.error %>
+        </div>
+      <% } %>
+      <article class="message">
+        <div class="message-header">
+          <h1>Configuracion</h1>
+        </div>
+        <div class="message-body">
+          <form method="post" action="/admin/config" novalidate>
+            <div class="field">
+              <label class="label">Precio por hora</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" name="pricePerHour" value="<%= pricePerHour %>" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </article>
+    </section>
+  </div>
+  
+</body>
+</html>
